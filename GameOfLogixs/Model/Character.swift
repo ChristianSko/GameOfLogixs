@@ -17,12 +17,33 @@ struct APICharacterData: Decodable {
     var results: [Character]
 }
 
-struct Character: Identifiable, Decodable {
-    
-    var id: Int
-    var name: String
-    var description: String
-    var thumbnail: [String:String]
-    var urls: [String: String]
+struct Character: Identifiable, Codable {
+
+    public let id: Int?
+    let name: String?
+    let description: String?
+    let thumbnail: MarvelImage?
 
 }
+
+struct MarvelImage: Codable {
+    let path: String
+    let ext: String
+
+    public init(
+        path: String,
+        ext: String
+    ) {
+        self.path = path
+        self.ext = ext
+    }
+
+    private enum CodingKeys : String, CodingKey {
+        case path, ext = "extension"
+    }
+
+    var url: URL { return URL(string: "\(path)/standard_xlarge.\(ext)")! }
+}
+
+
+
