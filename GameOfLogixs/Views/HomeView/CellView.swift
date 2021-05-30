@@ -19,7 +19,7 @@ struct CellView: View {
                 .renderingMode(.original)
                 .frame(width: .infinity, height: 250)
             
-            Text(character.name)
+            Text(character.name ?? "Unknown")
                 .foregroundColor(.primary)
                 .font(.title)
                 .padding()
