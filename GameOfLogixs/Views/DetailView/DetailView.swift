@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct DetailView: View {
-    @EnvironmentObject var homeData: HomeViewModel
+    
+    let character: Character
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text(character.name ?? "Not Found")
+                .font(.title)
+            
+            Text(character.description ?? "Not Found")
+                .font(.body)
+        }
+        
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView()
-    }
-}
+//struct DetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailView()
+//    }
+//}

@@ -16,14 +16,13 @@ final class NetworkManager {
     private init() {}
 
 
-    func getCharacters(completed: @escaping (Result<[Character], GOLError>) -> Void) {
+    func getCharacters(completed: @escaping (Result<APICharacterData, GOLError>) -> Void) {
         
-        let ts = String(Date().timeIntervalSince1970)
-        let hash = MD5(data: "\(ts)\(APIKeys.privateKey)\(APIKeys.publicKey)")
-        let marvelEndURL = "https://gateway.marvel.com:443/v1/public/characters?ts=\(ts)&apikey=\(APIKeys.privateKey)&hash\(hash)"
+        let baseURL = "https://gateway.marvel.com/"
+        let pageParams = ""
+        let urlString = "\(baseURL)v1/public/characters?apikey=\(APIKeys.publicKey)&hash=\(APIKeys.md5)&ts=\(APIKeys.ts)\(pageParams)"
         
-        
-        guard let url = URL(string: marvelEndURL) else {
+        guard let url = URL(string: urlString) else {
             completed(.failure(.invalidURL))
             return
         }
@@ -32,7 +31,6 @@ final class NetworkManager {
             if let _ = error  {
                 completed(.failure(.unableToComplete))
                 return
-
             }
 
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -47,8 +45,8 @@ final class NetworkManager {
 
             do {
                 let decoder = JSONDecoder()
-                let decodedResponse = try decoder.decode(APICharacterData.self, from: data)
-                completed(.success(decodedResponse.results))
+                let decodedResponse = try decoder.decode(APIResult.self, from: data)
+                completed(.success(decodedResponse.data))
             } catch {
                 completed(.failure(.invalidData))
             }
@@ -57,15 +55,6 @@ final class NetworkManager {
         
     }
     
-    func MD5(data: String) -> String {
-        
-        let hash = Insecure.MD5.hash(data: data.data(using: .utf8) ?? Data())
-        
-        return hash.map {
-            String(format: "%02hhx", $0)
-        }
-        .joined()
-    }
 
 //    func downloadImage(fromURLString urlString: String, completed: @escaping (UIImage?) -> Void) {
 //        let cachekey = NSString(string: urlString)

@@ -9,19 +9,31 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject var homeData = HomeViewModel()
+    @StateObject var viewModel = HomeViewModel()
     
     var body: some View {
-        NavigationView{
-            List(homeData.fetchedCharacters) { character in
-                CellView(character: character)
+        ZStack{
+            NavigationView{
+                List(viewModel.fetchedCharacters) { character in
+                    NavigationLink(
+                        destination: DetailView(character: character)) {
+                        CellView(character: character)
+                    }
+                }
+                .navigationTitle("Characters")
+            }
+            .onAppear{
+                viewModel.getCharacters()
+            }
+            if viewModel.isLoading {
+                LoadingView()
             }
         }
-        .onAppear{
-            homeData.getCharacters()
+        .alert(item: $viewModel.alertItem) { alertItem in
+            Alert(title: alertItem.title,
+                  message: alertItem.message,
+                  dismissButton: alertItem.dismissButton)
         }
-        .edgesIgnoringSafeArea(.all)
-        .navigationTitle("Marvel Characters")
     }
 }
 
@@ -33,5 +45,23 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 
-
-
+struct CellView: View {
+    
+    let character: Character
+    
+    var body: some View {
+        ZStack(alignment: .bottomLeading){
+            
+            Image("ironman")
+                .resizable()
+                .renderingMode(.original)
+                .frame(width: 400, height: 250)
+            
+            Text(character.name ?? "Unknown")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(.primary)
+                .padding()
+        }
+    }
+}

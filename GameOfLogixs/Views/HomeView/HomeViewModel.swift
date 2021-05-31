@@ -27,7 +27,7 @@ final class HomeViewModel: ObservableObject {
                 isLoading.toggle()
                 switch result {
                 case .success(let characters):
-                    self.fetchedCharacters = characters
+                    self.fetchedCharacters = characters.results
                     
                 case .failure(let error):
                     switch error {
