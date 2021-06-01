@@ -20,6 +20,7 @@ struct HomeView: View {
                         CellView(character: character)
                     }
                 }
+                .listStyle(DefaultListStyle())
                 .navigationTitle("Characters")
             }
             .onAppear{

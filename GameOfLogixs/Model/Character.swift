@@ -22,11 +22,11 @@ struct Character: Identifiable, Codable {
     public let id: Int?
     let name: String?
     let description: String?
-    let thumbnail: MarvelImage?
+    let thumbnail: Thumbnail?
 
 }
 
-struct MarvelImage: Codable {
+struct Thumbnail: Codable {
     let path: String
     let ext: String
 

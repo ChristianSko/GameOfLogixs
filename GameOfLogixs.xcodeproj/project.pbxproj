@@ -20,6 +20,7 @@
 		D6F62C22266440BD00D757E3 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F62C21266440BD00D757E3 /* APIKeys.swift */; };
 		D6F62C2526656F4F00D757E3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F62C2426656F4F00D757E3 /* LoadingView.swift */; };
 		D6F62C282665856500D757E3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F62C272665856500D757E3 /* SplashView.swift */; };
+		D6F62C2B2666C84800D757E3 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F62C2A2666C84700D757E3 /* RemoteImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D6F62C21266440BD00D757E3 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		D6F62C2426656F4F00D757E3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D6F62C272665856500D757E3 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		D6F62C2A2666C84700D757E3 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				D6F62C072663DFCC00D757E3 /* Utilities */,
 				D6F62C052663DF5A00D757E3 /* Views */,
 				D6C709852662A5170005AA6C /* Info.plist */,
+				D6F62C292666C83500D757E3 /* Image */,
 				D6C709802662A5170005AA6C /* Assets.xcassets */,
 				D6C709822662A5170005AA6C /* Preview Content */,
 			);
@@ -176,6 +179,14 @@
 			path = SplashView;
 			sourceTree = "<group>";
 		};
+		D6F62C292666C83500D757E3 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				D6F62C2A2666C84700D757E3 /* RemoteImage.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -248,6 +259,7 @@
 				D6F62C172664005E00D757E3 /* GOLError.swift in Sources */,
 				D6F62C282665856500D757E3 /* SplashView.swift in Sources */,
 				D6F62C0E2663E23600D757E3 /* NetworkManager.swift in Sources */,
+				D6F62C2B2666C84800D757E3 /* RemoteImage.swift in Sources */,
 				D6F62C122663E4B600D757E3 /* HomeViewModel.swift in Sources */,
 				D6F62C2526656F4F00D757E3 /* LoadingView.swift in Sources */,
 				D6F62C0A2663E07700D757E3 /* DetailView.swift in Sources */,
