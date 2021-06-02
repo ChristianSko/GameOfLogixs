@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct SplashView: View {
+    
+    @State var isActive:Bool = false
+    
     var body: some View {
-        Image("splash")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 300, height: 150)
+        
+        VStack {
+            if self.isActive {
+                HomeView()
+            } else {
+                Image("splash")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 150)
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                withAnimation {
+                    self.isActive = true
+                }
+            }
+        }
     }
 }
 

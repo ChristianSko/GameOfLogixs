@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct HomeView: View {
     
@@ -21,7 +22,7 @@ struct HomeView: View {
                     }
                 }
                 .listStyle(DefaultListStyle())
-                .navigationTitle("Characters")
+                .navigationTitle("🦸🏾‍♀️Characters🦸‍♂️")
             }
             .onAppear{
                 viewModel.getCharacters()
@@ -53,7 +54,7 @@ struct CellView: View {
     var body: some View {
         ZStack(alignment: .bottomLeading){
             
-            Image("ironman")
+            WebImage(url: character.thumbnail?.url)
                 .resizable()
                 .renderingMode(.original)
                 .frame(width: 400, height: 250)

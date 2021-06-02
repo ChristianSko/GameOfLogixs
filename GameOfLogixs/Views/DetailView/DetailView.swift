@@ -19,6 +19,7 @@ struct DetailView: View {
             Text(character.description ?? "Not Found")
                 .font(.body)
         }
+        .navigationTitle("🤓Details🤓")
         
     }
 }
