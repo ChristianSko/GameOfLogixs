@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct DetailView: View {
     
@@ -13,14 +14,20 @@ struct DetailView: View {
     
     var body: some View {
         VStack{
+            
+            WebImage(url: character.thumbnail?.url)
+                
+            
             Text(character.name ?? "Not Found")
                 .font(.title)
             
             Text(character.description ?? "Not Found")
                 .font(.body)
+                .fontWeight(.light)
+                .multilineTextAlignment(.leading)
+                .padding()
         }
         .navigationTitle("🤓Details🤓")
-        
     }
 }
 

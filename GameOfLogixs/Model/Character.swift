@@ -41,7 +41,7 @@ struct Thumbnail: Codable {
         case path, ext = "extension"
     }
 
-    var url: URL { return URL(string: "\(path)/standard_xlarge.\(ext)")! }
+    var url: URL { return URL(string: "\(path)/landscape_xlarge.\(ext)")! }
 }
 
 

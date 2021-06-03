@@ -56,14 +56,17 @@ struct CellView: View {
             
             WebImage(url: character.thumbnail?.url)
                 .resizable()
-                .renderingMode(.original)
-                .frame(width: 400, height: 250)
+                .aspectRatio(contentMode: .fill)
+                .frame(maxWidth: .infinity, maxHeight: 260)
+                .cornerRadius(20)
+                .padding()
+            
             
             Text(character.name ?? "Unknown")
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.primary)
-                .padding()
+                .padding(30)
         }
     }
 }

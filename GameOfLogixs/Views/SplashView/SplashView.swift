@@ -21,6 +21,7 @@ struct SplashView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 300, height: 150)
+                    .animation(.easeInOut(duration: 1.5))
             }
         }
         .onAppear {
