@@ -16,18 +16,20 @@ struct DetailView: View {
         VStack{
             
             WebImage(url: character.thumbnail?.url)
+                .resizable()
+                .frame(height: 260)
+                .cornerRadius(1)
                 
-            
-            Text(character.name ?? "Not Found")
-                .font(.title)
-            
+            // Need to handle cases with no description
             Text(character.description ?? "Not Found")
                 .font(.body)
                 .fontWeight(.light)
                 .multilineTextAlignment(.leading)
                 .padding()
+            
+            
         }
-        .navigationTitle("🤓Details🤓")
+        .navigationTitle(character.name ?? "No name found")
     }
 }
 
