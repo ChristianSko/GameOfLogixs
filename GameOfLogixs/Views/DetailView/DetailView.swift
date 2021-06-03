@@ -27,7 +27,9 @@ struct DetailView: View {
                 .multilineTextAlignment(.leading)
                 .padding()
             
+            Spacer()
             
+    
         }
         .navigationTitle(character.name ?? "No name found")
     }
