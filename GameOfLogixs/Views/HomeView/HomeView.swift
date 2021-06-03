@@ -57,7 +57,7 @@ struct CellView: View {
             WebImage(url: character.thumbnail?.url)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(maxWidth: .infinity, maxHeight: 260)
+                .frame(maxWidth: .infinity, maxHeight: 250)
                 .cornerRadius(20)
                 .padding()
             
